@@ -1,6 +1,7 @@
 #include<iostream>
 #include<string>
 using namespace std;
+bool haybajos=false;
 struct EMP{
     int num;
     string nom;
@@ -51,5 +52,16 @@ int main(){
     cout<<"\nEl empleado con mayores ventas del mes: \n";
     cout<<"Nombre: "<<EMPLEADOS[mayor].nom<<endl;
     cout<<"Ventas totales: "<<mayorvent<<endl;    
+
+    cout << "\n-Empleados con ventas menores a 30 unidades en diciembre-\n";
+		for (int i = 0; i < n; i++) {			
+            if (EMPLEADOS[i].ven[11]<30){
+            cout << "Empleado #" << EMPLEADOS[i].num << " - " << EMPLEADOS[i].nom << endl;
+            haybajos = true;
+	        }
+        }
+        if (!haybajos) {
+            cout << "Ningún empleado tuvo ventas inferiores a 30 unidades en diciembre." << endl;
+        }
     return 0;
 }
