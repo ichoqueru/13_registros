@@ -123,11 +123,12 @@ void eliminarContacto(contactoEmail lista[], int &n){
 
 void modificarContacto(contactoEmail lista[], int n){
     string nombre;
-    cin.ignore(){
+    cin.ignore();
         cout<<"Ingrese el nombre del contacto a modificar: ";
         getline(cin, nombre);
+    for(int i=0; i<n;i++){
         if(lista[i].nom==nombre){
-            cout<<"--Ingrese los nuevos datos--";
+            cout<<"--Ingrese los nuevos datos--"<<endl;
             cout<<"Nombre: "; getline(cin,lista[i].nom);
             cout<<"Sexo (M/F): "; cin>>lista[i].sex;
             cout<<"Edad: "; cin>>lista[i].edad;
@@ -135,6 +136,6 @@ void modificarContacto(contactoEmail lista[], int n){
             cout<<"\tIngrese el usuario: "; cin>>lista[i].email.user;
             cout<<"\tIngrese el dominio: "; cin>>lista[i].email.domain;
             return;
-        }
+        }    
     }
 }
