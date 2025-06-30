@@ -16,6 +16,7 @@ struct contactoEmail{
 void leerCorreo(correo &, string, string);
 void leerContacto(contactoEmail &, string, char, int, correo);
 void imprimeContacto(contactoEmail &);
+void eliminarContacto(contactoEmail lista[], int &n);
 
 int main(){
     int n, op;
@@ -30,7 +31,7 @@ int main(){
         cout<<"Menu de opciones -------------------------"<<endl;
         cout<<"1. Agregar contacto"<<endl;
         cout<<"2. Mostrar contactos"<<endl;
-        cout<<"3. Modificar un contacto"<<endl;
+        cout<<"3. Eliminar un contacto"<<endl;
         cout<<"0. Salir"<<endl;
         cout<<"Elige una opcion: "; cin>>op;
         switch(op){
