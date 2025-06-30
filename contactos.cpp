@@ -17,6 +17,7 @@ void leerCorreo(correo &, string, string);
 void leerContacto(contactoEmail &, string, char, int, correo);
 void imprimeContacto(contactoEmail &);
 void eliminarContacto(contactoEmail lista[], int &n);
+void modificarContacto(contactoEmail lista[], int n);
 
 int main(){
     int n, op;
@@ -32,6 +33,7 @@ int main(){
         cout<<"1. Agregar contacto"<<endl;
         cout<<"2. Mostrar contactos"<<endl;
         cout<<"3. Eliminar un contacto"<<endl;
+        cout<<"4. Modificar un contacto"<<endl;
         cout<<"0. Salir"<<endl;
         cout<<"Elige una opcion: "; cin>>op;
         switch(op){
@@ -65,6 +67,10 @@ int main(){
                 //elimina un contacto;                 
                 eliminarContacto(lista,n);        
                 system("pause");        
+                break;
+            case 4:
+                modificarContacto(lista,n);
+                system("pause");
                 break;
             case 0:
                 cout<<"Esta seguro de salir? (S/N): ";
@@ -113,4 +119,22 @@ void eliminarContacto(contactoEmail lista[], int &n){
         }
     }
 
+}
+
+void modificarContacto(contactoEmail lista[], int n){
+    string nombre;
+    cin.ignore(){
+        cout<<"Ingrese el nombre del contacto a modificar: ";
+        getline(cin, nombre);
+        if(lista[i].nom==nombre){
+            cout<<"--Ingrese los nuevos datos--";
+            cout<<"Nombre: "; getline(cin,lista[i].nom);
+            cout<<"Sexo (M/F): "; cin>>lista[i].sex;
+            cout<<"Edad: "; cin>>lista[i].edad;
+            cout<<"Correo electronico (usuario@dominio): "<<endl;
+            cout<<"\tIngrese el usuario: "; cin>>lista[i].email.user;
+            cout<<"\tIngrese el dominio: "; cin>>lista[i].email.domain;
+            return;
+        }
+    }
 }
