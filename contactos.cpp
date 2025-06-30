@@ -30,11 +30,12 @@ int main(){
         cout<<"Menu de opciones -------------------------"<<endl;
         cout<<"1. Agregar contacto"<<endl;
         cout<<"2. Mostrar contactos"<<endl;
+        cout<<"3. Modificar un contacto"<<endl;
         cout<<"0. Salir"<<endl;
         cout<<"Elige una opcion: "; cin>>op;
         switch(op){
             case 1:
-                cout<<"Ingrese los datos de un usuario: "<<endl;
+                cout<<"---Agregar contacto--- "<<endl;
                 cin.ignore();
                 cout<<"Ingrese el nombre del contacto: "; getline(cin,nom);
                 cout<<"Ingrese el sexo (M/F): "; cin>>sex;
@@ -58,6 +59,11 @@ int main(){
                     cout<<endl;
                 }
                 system("pause");
+                break;
+            case 3:
+                //elimina un contacto;                 
+                eliminarContacto(lista,n);        
+                system("pause");        
                 break;
             case 0:
                 cout<<"Esta seguro de salir? (S/N): ";
@@ -88,4 +94,22 @@ void imprimeContacto(contactoEmail &c){
     cout<<"Sexo: "<<c.sex<<endl;
     cout<<"Edad: "<<c.edad<<endl;
     cout<<"Email: "<<c.email.user<<"@"<<c.email.domain<<endl;
+}
+
+void eliminarContacto(contactoEmail lista[], int &n){
+    string nombre;
+    cin.ignore();
+    cout<<"Ingrese el nombre del contacto a eliminar: ";
+    getline(cin, nombre);
+    for(int i=0;i<n;i++){
+        if(lista[i].nom==nombre){
+            for(int j=i;j<n-1;j++){
+                lista[j]=lista[j+1];
+            }
+            n--;
+            cout<<"Contacto eliminado"<<"\n";
+            return;
+        }
+    }
+
 }
