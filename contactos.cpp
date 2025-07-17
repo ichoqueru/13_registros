@@ -1,4 +1,5 @@
 #include<iostream>
+#include<string>
 using namespace std;
 
 struct correo{
@@ -13,6 +14,7 @@ struct contactoEmail{
     correo email;
 };
 
+
 void leerCorreo(correo &, string, string);
 void leerContacto(contactoEmail &, string, char, int, correo);
 void imprimeContacto(contactoEmail &);
@@ -20,7 +22,7 @@ void eliminarContacto(contactoEmail lista[], int &n);
 void modificarContacto(contactoEmail lista[], int n);
 
 int main(){
-    int n, op;
+    int n, op,s;
     string nom, user, domain;
     char sex;
     int edad;
@@ -72,9 +74,7 @@ int main(){
                 modificarContacto(lista,n);
                 system("pause");
                 break;
-            case 0:
-                cout<<"Esta seguro de salir? (S/N): ";
-                break;
+            
             default:
                 cout<<"Opcion no valida!"<<endl;
                 system("pause");
